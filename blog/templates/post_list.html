@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <a href="{% url 'create_post' %}">Create new post</a>
+    <ul class = "list-group">
+        {% for post in posts %}
+        <li class = "list-group-item " >
+           <p><a href="{% url 'post_detail' post.pk %}" >{{ post.title }}</a></p>
+            <a href="{% url 'update_post' post.pk %}" >Edit</a>
+            <a href="{% url 'delete_post' post.pk %}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
